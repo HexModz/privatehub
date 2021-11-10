@@ -1,5 +1,5 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/HexModz/privatehub/main/encrypt"))("Encrypt")
-loadstring(game:HttpGet("https://api.upload.systems/pastes/P4Sx4C9sY6uG/raw"))("Arabic String")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/HexModz/privatehub/main/encrypt1"))("Arabic String")
 local Request, GetAsset = nil, nil
 if (syn and syn.request) then
 	Request = syn.request 
