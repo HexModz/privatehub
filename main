@@ -30,7 +30,7 @@ local file
 if not isfolder("Private-Hub") then
 	makefolder("Private-Hub")
 end
-if not isfolder(Private-Hub/Presets") then
+if not isfolder("Private-Hub/Presets") then
 	makefolder("Private-Hub/Presets")
 end
 local List = listfiles("Private-Hub/Presets")
@@ -53,7 +53,7 @@ else
 	file = readfile("config.vh")
 end
 if not isfile("Private-Hub/Presets/Defauult.preset") then
-	writefile("Private-Hub/Presets/Default.preset", "for i, v in next, tools do\n    coroutine.wrap(\n        function()\n            local BP, BG, F = v.POSV.Value, v.GYROV.Value\n            local a, vol = 1, 0\n            while vis do\n                vol = tools[#tools].Handle.Sound.PlaybackLoudness / sens\n                ro = math.rad(a / 1 + (i * (360 / #tools)))\n                F = CFrame.new(torso.Position) * CFrame.Angles(0, ro, 0) * CFrame.new(0, 0, vol + offset)\n                BP.Position = F.p\n                BG.CFrame = CFrame.new(BG.Parent.Position, torso.Position + Vector3.new(0,angle,0))\n                a = a + speed / 2.5\n                game:GetService(\"RunService\").Heartbeat:wait()\n                v.Handle.Velocity = Vector3.new(0, 0, 30)\n                v.Handle.AssemblyLinearVelocity = Vector3.new(30,0,0)\n            end\n        end\n    )()\nend\n    ")
+	writefile("Private-Hub/Presets/Default.preset", "for i, v in next, tools do\n    coroutine.wrap(\n        function()\n            local BP, BG, F = v.POSV.Value, v.GYROV.Value\n            local a, vol = 1, 0\n            while vis do\n                vol = tools[#tools].Handle.Sound.PlaybackLoudness / sens\n                ro = math.rad(a / 2 + (i * (360 / #tools)))\n                F = CFrame.new(torso.Position) * CFrame.Angles(0, ro, 0) * CFrame.new(0, 0, vol + offset)\n                BP.Position = F.p\n                BG.CFrame = CFrame.new(BG.Parent.Position, torso.Position + Vector3.new(0,tilt+math.sin(-vol*2),0))\n                a = a + speed / 2.5\n                game:GetService(\"RunService\").Heartbeat:wait()\n                v.Handle.Velocity = Vector3.new(0, 0, 30)\n                v.Handle.AssemblyLinearVelocity = Vector3.new(30,0,0)\n            end\n        end\n    )()\nend\n    ")
 end
 local Player = game:GetService("Players").LocalPlayer
 local Char = Player.Character
@@ -381,7 +381,7 @@ local pInput = VisualFrame.pInput
 local FileInput = DecodeFrame.FileInput
 Main.Active = true
 PlrName.Text = Player.Name
-PlrVH.Text = Player.UserId
+PlrVH.Text = "NiggerPoopSex"
 PlrVH.TextSize = 10
 PlrIcon.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. Player.UserId .. "&width=420&height=420&format=png"
 Close.MouseButton1Down:connect(function()
@@ -790,8 +790,8 @@ Input.FocusLost:connect(function(Enter)
 		ID = string.gsub(ID, ".", function(symbol)
 			return symbol .. ("   "):rep(5)
 		end)
-		Header = "hallo my friend"
-		ID = "nil\n?\n " .. Header .. "        [\"Private Hub\"]" .. ID
+		Header = "        [\"" .. str(5) .. "\"]\not hot girl summer[\"" .. str(10) .. "\"]\n        "
+		ID = "nil\n?\n " .. Header .. "        [\"Private Hub | script in testing\"]" .. ID
 		if not BackPlay then
 			for i, v in next, Player.Character:GetDescendants() do
 				if v:IsA("RemoteEvent") then
@@ -859,8 +859,7 @@ vInput.FocusLost:connect(function(Enter)
 		ID = string.gsub(ID, ".", function(symbol)
 			return symbol .. ("   "):rep(5)
 		end)
-		Header = "Thugger"
-		ID = "nil\n?\n " .. Header .. "        [\"Private Hub\"]" .. ID
+		ID = "nil\n?\n " .. Header .. " [\"Private Hub | discord.gg/vDWrXZPpFW\"]" .. ID
 		if not BackPlay then
 			for i, v in next, Player.Character:GetDescendants() do
 				if v:IsA("RemoteEvent") then
@@ -1149,7 +1148,7 @@ while pg do
 		pg = false
 	end
 end
-List = listfiles("Private-Hub/Presets")
+List = listfiles("Verts-Hub/Presets")
 for i, v in next, List do
 	for i = #List, #List do
 		local Holder = VisualFrame.Back.Holder:clone()
@@ -1163,7 +1162,7 @@ for i, v in next, List do
 	end
 end
 Refresh.MouseButton1Down:connect(function()
-	List = listfiles("Private-Hub/Presets")
+	List = listfiles("Verts-Hub/Presets")
 	for i, v in next, VisualFrame.Back.Presets:GetChildren() do
 		if v:IsA("Frame") then
 			v:remove()
@@ -1205,7 +1204,7 @@ VisButton.MouseButton1Down:connect(function()
 			ID = Tool.Handle.Sound.SoundId:gsub("http://www.roblox.com/asset/%?id=", "", 1)
 			Time = Tool.Handle.Sound.TimePosition
 			char.Humanoid:UnequipTools()
-			Visual(readfile("Private-Hub/Presets/" .. selected, true))
+			Visual(readfile("Verts-Hub/Presets/" .. selected, true))
 			Speed.Text = ""
 			Offset.Text = ""
 			Sensitivity.Text = ""
@@ -1223,7 +1222,7 @@ VisButton.MouseButton1Down:connect(function()
 				end
 			end
 		else
-			Visual(readfile("Private-Hub/Presets/" .. selected, true))
+			Visual(readfile("Verts-Hub/Presets/" .. selected, true))
 			for i, v in next, char.Humanoid:GetPlayingAnimationTracks() do
 				v:stop()
 			end
